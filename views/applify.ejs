@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Applify</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="img/favicon.ico" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Template Main CSS File -->
+  <link href="/public/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="calculator-main text-center">
+    <nav role="navigation" class="navbar pt10 navbar-custom navbar-fixed-top" id="navbar" style="">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/site">
+            <img class="rs-logo rs-hide" itemprop="image" src="/public/images/logo.png">
+            <!-- <img class="mobilelogo-show rs-show" itemprop="image" src="/themes/adminre/../../design/calculator/img/vp-logo.png" alt="VenturePact Logo" width="39" height="26" data-pin-nopin="true"> -->
+          </a>
+          <ul class="nav navbar-nav navbar-right mt10 pull-right">
+            <li>
+              <label class="head-prize">
+                <small>Rough Estimate</small>
+                <br>
+                <input type="" id="total"
+                  style="margin-top: -10px; width: 40px; height:20px ;text-align: center; background-color: #F06824; border: none;color: white;">hours
+                <!-- </input> -->
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="main_calculator">
+      <div class="container">
+        <div class="row main_row">
+          <div class="col-md-12">
+            <form id="msform">
+
+              <fieldset>
+                <div class="next main_div_row_one cost_steps">
+                  <div class="row ">
+                    <div class="col-md-12">
+                      <h2>Scratch or Readymade Apps?</h2>
+                    </div>
+                  </div>
+                  <div class="row row_bx">
+                    <div class="col-lg-6 col-md-12" onclick="select">
+                      <div class="exist_business_bx clr_black">
+                        <h3> Readymade (save upto 40% of the cost) </h3>
+                        <p> Uber, Intagram, Airbnb, Whatsapp etc. </p>
+                        <img src="/public/images/mobile.png" alt="" id="1" class="A">
+
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="exist_business_bx clr_orange">
+                        <h3> Custom App </h3>
+                        <p> Cars & Transport, Social networking, Travel, <br> Health & Beauty etc. </p>
+                        <img src="/public/images/cate2.png" alt="" id="2" class="A">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </fieldset>
+
+
+              <!-- Image call dynamic -->
+              <% if(order > 0){ %>
+              <fieldset>
+                <div class="row previous">
+                  <div class="col-md-12">
+                    <div class=" title_text">
+                      <a href="#_" class="">
+                        <i class="fa fa-angle-left"></i> Back </a>
+                      <h2>Industry or Category</h2>
+                    </div>
+                  </div>
+                </div>
+                <% if(order > 5){ %>
+                <%console.log("This is order value in applify.ejs",counts)%>
+                <%console.log("This is order value in applify category",data)%>
+                <h1> <%=data.category%> </h1>
+                <% }
+                %>
+                        <div class="col-lg-3 col-md-4">
+                          <a href="<%=base%>/addcatergory">
+                            <span class="app_logo add_new btn_stroke">+ Add new category</span>
+                          </a>
+
+                        </div>
+
+
+
+              </fieldset>
+              <% }
+              %>
+        
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        function updateSum() {
+          var total = 0;
+          $(".sum:checked").each(function (i, n) { total += parseInt($(n).val()); })
+          $("#total").val(total);
+        }
+        // run the update on every checkbox change and on startup
+        $("input.sum").change(updateSum);
+        updateSum();
+      })
+
+      $(document).ready(function () {
+        $(".A ,.app_logo,.sum").click(function () {
+          // alert(event.target.id)
+          let id = (event.target.id)
+          $.ajax({
+            method: "GET",
+            url: "/get",
+            data: { id },
+          })
+            .done(function (msg) {
+              alert(id)
+            });
+        })
+      })
+
+      $(document).ready(function () {
+        let arr=[]
+        $(".A ").click(function () {
+          
+          console.log("this is console",event.target.id)
+          arr.push({firstselect:event.target.id})
+          console.log("thisisisss",arr)
+        })
+
+        $(".app_logo").click(function () {
+
+          console.log("this is console",event.target.id)
+          arr.push({logoselect:event.target.id})
+          console.log("thisisisss",arr)
+        })
+
+        $(".sum").click(function () {
+
+          console.log("this is console",event.target.id)
+          arr.push({logoselect:event.target.id})
+          console.log("thisisisss",arr)
+        })
+
+
+      })
+
+    </script>
+
+
+    <script type="text/javascript">
+    </script>
+
+
+
+    <script>
+      //jQuery time
+      var current_fs, next_fs, previous_fs; //fieldsets
+      var left, opacity, scale; //fieldset properties which we will animate
+      var animating; //flag to prevent quick multi-click glitches
+      $(".next").click(function () {
+        if (animating) return false;
+        animating = true;
+        current_fs = $(this).parent();
+        next_fs = $(this).parent().next();
+        //activate next step on progressbar using the index of next_fs
+        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+        //show the next fieldset
+        next_fs.show();
+        //hide the current fieldset with style
+        current_fs.animate({
+          opacity: 0
+        }, {
+          step: function (now, mx) {
+            //as the opacity of current_fs reduces to 0 - stored in "now"
+            //1. scale current_fs down to 80%
+            scale = 1 - (1 - now) * 0.2;
+            //2. bring next_fs from the right(50%)
+            left = (now * 50) + "%";
+            //3. increase opacity of next_fs to 1 as it moves in
+            opacity = 1 - now;
+            current_fs.css({
+              'transform': 'scale(' + scale + ')',
+              'position': 'absolute'
+            });
+            next_fs.css({
+              'left': left,
+              'opacity': opacity
+            });
+          },
+          duration: 800,
+          complete: function () {
+            current_fs.hide();
+            animating = false;
+          },
+          //this comes from the custom easing plugin
+          easing: 'easeInOutBack'
+        });
+      });
+      $(".previous").click(function () {
+        if (animating) return false;
+        animating = true;
+        current_fs = $(this).parent();
+        previous_fs = $(this).parent().prev();
+        //de-activate current step on progressbar
+        $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+        //show the previous fieldset
+        previous_fs.show();
+        //hide the current fieldset with style
+        current_fs.animate({
+          opacity: 0
+        }, {
+          step: function (now, mx) {
+            //as the opacity of current_fs reduces to 0 - stored in "now"
+            //1. scale previous_fs from 80% to 100%
+            scale = 0.8 + (1 - now) * 0.2;
+            //2. take current_fs to the right(50%) - from 0%
+            left = ((1 - now) * 50) + "%";
+            //3. increase opacity of previous_fs to 1 as it moves in
+            opacity = 1 - now;
+            current_fs.css({
+              'left': left
+            });
+            previous_fs.css({
+              'transform': 'scale(' + scale + ')',
+              'opacity': opacity
+            });
+          },
+          duration: 800,
+          complete: function () {
+            current_fs.hide();
+            animating = false;
+          },
+          //this comes from the custom easing plugin
+          easing: 'easeInOutBack'
+        });
+      });
+      $(".submit").click(function () {
+        return false;
+      })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- Favicons -->
+  <link href="img/favicon.ico" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Template Main CSS File -->
+  <link href="/public/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="previous add_new_cate cost_steps1">
+        <div class="row ">
+          <div class="col-md-12">
+            <h2>Choose your Business</h2>
+          </div>
+        </div>
+        <a href="#_" class="">
+          <i class="fa fa-angle-left"></i> Back </a>
+        <form action="http://localhost:8080/category/addcategory" method="POST">
+          <h3>Add new category</h3>
+          <div class="form-group">
+            <input type="text" class="form-control" id="" placeholder="Required category" name="category">
+          </div>
+          <div class="form-group">
+            <input type="name" class="form-control" id="" placeholder="Your name *" name="name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="" placeholder="Email address for notifications *" name="email">
+          </div>
+          <!-- <div class="form-check"><input type="checkbox" class="form-check-input" id="exampleCheck1"><label class="form-check-label" for="exampleCheck1">Check me out</label></div> -->
+          <button type="submit" class="btn_main">Send</button>
+        </form>
+      </div>
+
+      
+    <script>
+      //jQuery time
+      var current_fs, next_fs, previous_fs; //fieldsets
+      var left, opacity, scale; //fieldset properties which we will animate
+      var animating; //flag to prevent quick multi-click glitches
+      $(".next").click(function () {
+        if (animating) return false;
+        animating = true;
+        current_fs = $(this).parent();
+        next_fs = $(this).parent().next();
+        //activate next step on progressbar using the index of next_fs
+        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+        //show the next fieldset
+        next_fs.show();
+        //hide the current fieldset with style
+        current_fs.animate({
+          opacity: 0
+        }, {
+          step: function (now, mx) {
+            //as the opacity of current_fs reduces to 0 - stored in "now"
+            //1. scale current_fs down to 80%
+            scale = 1 - (1 - now) * 0.2;
+            //2. bring next_fs from the right(50%)
+            left = (now * 50) + "%";
+            //3. increase opacity of next_fs to 1 as it moves in
+            opacity = 1 - now;
+            current_fs.css({
+              'transform': 'scale(' + scale + ')',
+              'position': 'absolute'
+            });
+            next_fs.css({
+              'left': left,
+              'opacity': opacity
+            });
+          },
+          duration: 800,
+          complete: function () {
+            current_fs.hide();
+            animating = false;
+          },
+          //this comes from the custom easing plugin
+          easing: 'easeInOutBack'
+        });
+      });
+      $(".previous").click(function () {
+        if (animating) return false;
+        animating = true;
+        current_fs = $(this).parent();
+        previous_fs = $(this).parent().prev();
+        //de-activate current step on progressbar
+        $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+        //show the previous fieldset
+        previous_fs.show();
+        //hide the current fieldset with style
+        current_fs.animate({
+          opacity: 0
+        }, {
+          step: function (now, mx) {
+            //as the opacity of current_fs reduces to 0 - stored in "now"
+            //1. scale previous_fs from 80% to 100%
+            scale = 0.8 + (1 - now) * 0.2;
+            //2. take current_fs to the right(50%) - from 0%
+            left = ((1 - now) * 50) + "%";
+            //3. increase opacity of previous_fs to 1 as it moves in
+            opacity = 1 - now;
+            current_fs.css({
+              'left': left
+            });
+            previous_fs.css({
+              'transform': 'scale(' + scale + ')',
+              'opacity': opacity
+            });
+          },
+          duration: 800,
+          complete: function () {
+            current_fs.hide();
+            animating = false;
+          },
+          //this comes from the custom easing plugin
+          easing: 'easeInOutBack'
+        });
+      });
+      $(".submit").click(function () {
+        return false;
+      })
+    </script>
+</body>
+</html>

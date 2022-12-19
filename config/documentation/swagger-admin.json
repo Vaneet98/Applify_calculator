@@ -1,0 +1,1071 @@
+{
+    "swagger": "2.0",
+  "info": {
+    "title": "Applify Project Development Calculator",
+    "description": "Applify Project Development Calculator",
+    "version": "1.0"
+  },
+  "produces": ["application/json"],
+  "basePath": "/",
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "authorization",
+      "in": "header"
+    }
+  },
+    "paths": {
+        "/user/add": {
+            "post": {
+              "summary": "User Register",
+              "tags": ["User Profile"],
+              "content": ["application/json"],
+              "parameters": [
+                {
+                  "name": "Name",
+                  "in": "formData",
+                  "description": "Enter user Name",
+                  "required": "true",
+                  "type": "string"
+                },
+                {
+                  "name": "email",
+                  "in": "formData",
+                  "description": "Enter your email",
+                  "required": false,
+                  "type": "string"
+                }
+              ],
+      
+              "responses": {
+                "200": {
+                  "description": "Education add Successfull",
+                  "schema": {
+                    "type": "object"
+                  }
+                },
+                "405": {
+                  "description": "Invalid input"
+                }
+              }
+            }
+          },
+          "/user/login": {
+            "post": {
+              "summary": "User Register",
+              "tags": ["User Profile"],
+              "content": ["application/json"],
+              "parameters": [
+                {
+                  "name": "email",
+                  "in": "formData",
+                  "description": "Enter user email",
+                  "required": "true",
+                  "type": "string",
+                  "value": "vaneet3157@gmail.com"
+                },
+                {
+                  "name": "password",
+                  "in": "formData",
+                  "description": "Enter your password",
+                  "required": false,
+                  "type": "string",
+                  "value": "123456"
+                }
+              ],
+      
+              "responses": {
+                "200": {
+                  "description": "Education add Successfull",
+                  "schema": {
+                    "type": "object"
+                  }
+                },
+                "405": {
+                  "description": "Invalid input"
+                }
+              }
+            }
+          },
+          "/user/edit_profile": {
+            "put": {
+              "summary": "User Profile add",
+              "tags": ["User Profile"],
+              "content": ["application/json"],
+              "parameters": [
+                {
+                  "name": "id",
+                  "in": "formData",
+                  "description": "Enter user id",
+                  "required": "true",
+                  "type": "string",
+                  "value": "80d874f6-c488-4b1c-bb1a-946297a542a2"
+                },
+                {
+                  "name": "Image",
+                  "in": "formData",
+                  "description": "Enter Image",
+                  "required": true,
+                  "type": "string",
+                  "value": "img.png"
+                },
+                {
+                  "name": "Pronouns",
+                  "in": "formData",
+                  "description": "Enter Pronouns",
+                  "enum": ["He / Him", "She / Her", "They / Them", "Add Custom"],
+                  "required": "true",
+                  "type": "string"
+                },
+                {
+                  "name": "Bio",
+                  "in": "formData",
+                  "description": "Enter your Bio",
+                  "required": "true",
+                  "type": "string",
+                  "value": "My bio"
+                },
+                {
+                  "name": "phoneNumber",
+                  "in": "formData",
+                  "description": "Enter your phoneNumber",
+                  "required": "true",
+                  "type": "string",
+                  "value": "123456789"
+                },
+                {
+                  "name": "dateOfBirth",
+                  "in": "formData",
+                  "description": "Enter your dateOfBirth",
+                  "required": "true",
+                  "type": "string",
+                  "value": "1998-01-26"
+                },
+                {
+                  "name": "Gender",
+                  "in": "formData",
+                  "description": "Enter Gender",
+                  "enum": ["Male", "Female", "Other"],
+                  "required": true,
+                  "type": "string"
+                },
+                {
+                  "name": "HonorsAwards",
+                  "in": "formData",
+                  "description": "Enter HonorsAwards",
+                  "required": "true",
+                  "type": "string",
+                  "value": "None"
+                },
+                {
+                  "name": "serviceDisabled",
+                  "in": "formData",
+                  "description": "Enter your serviceDisabled",
+                  "enum": [0, 1],
+                  "required": "true",
+                  "type": "integer"
+                },
+                {
+                  "name": "myPersonalities",
+                  "in": "formData",
+                  "description": "Enter your Personalities",
+                  "required": "true",
+                  "type": "string",
+                  "value": "person"
+                },
+                {
+                  "name": "currentLocation",
+                  "in": "formData",
+                  "description": "Enter your currentLocation",
+                  "required": "true",
+                  "type": "string",
+                  "value": "Applify Mohali"
+                },
+                {
+                  "name": "location",
+                  "in": "formData",
+                  "description": "Enter location",
+                  "required": true,
+                  "type": "string",
+                  "value": "Mohali"
+                },
+                {
+                  "name": "zipCode",
+                  "in": "formData",
+                  "description": "Enter zipCode",
+                  "required": "true",
+                  "type": "integer",
+                  "value": "123456"
+                },
+                {
+                  "name": "document",
+                  "in": "formData",
+                  "description": "Enter your document",
+                  "required": "true",
+                  "type": "string",
+                  "value": "doc.zip"
+                },
+                {
+                  "name": "marriageCertificate",
+                  "in": "formData",
+                  "description": "Enter your marriageCertificate",
+                  "required": "true",
+                  "type": "string",
+                  "value": "None"
+                },
+                {
+                  "name": "spouseName",
+                  "in": "formData",
+                  "description": "Enter your spouseName",
+                  "required": "true",
+                  "type": "string",
+                  "value": "Applify"
+                },
+                {
+                  "name": "service",
+                  "in": "formData",
+                  "description": "Enter service",
+                  "required": true,
+                  "type": "string",
+                  "value": "None"
+                },
+                {
+                  "name": "jobTitle",
+                  "in": "formData",
+                  "description": "Enter jobTitle",
+                  "required": "true",
+                  "type": "string",
+                  "value": "Full-Stack"
+                },
+                {
+                  "name": "servicehonorsAwards",
+                  "in": "formData",
+                  "description": "Enter your servicehonorsAwards",
+                  "required": "true",
+                  "type": "string",
+                  "value": "None"
+                },
+                {
+                  "name": "vegetranServiceDisabled",
+                  "in": "formData",
+                  "description": "Enter your vegetranServiceDisabled",
+                  "required": "true",
+                  "enum": [0, 1],
+                  "type": "integer"
+                },
+                {
+                  "name": "termCondition",
+                  "in": "formData",
+                  "description": "Enter your termCondition",
+                  "enum": [0, 1],
+                  "required": "true",
+                  "type": "number"
+                }
+              ],
+      
+              "responses": {
+                "200": {
+                  "description": "Education add Successfull",
+                  "schema": {
+                    "type": "object"
+                  }
+                },
+                "405": {
+                  "description": "Invalid input"
+                }
+              }
+            }
+          }, 
+          "/plateform/addplateform": {
+            "post": {
+              "summary": "Platefrom Add",
+              "tags": ["Plateform"],
+              "content": ["application/json"],
+              "parameters": [
+                {
+                  "name": "web",
+                  "in": "formData",
+                  "description": "Enter how much time for web",
+                  "type": "integer"
+                },
+                {
+                  "name": "mobile",
+                  "in": "formData",
+                  "description": "Enter how much time for mobile",
+                  "type": "integer"
+                },
+                {
+                    "name": "both",
+                    "in": "formData",
+                    "description": "Enter how much time for both",
+                    "type": "interger"
+                  },
+                  {
+                    "name": "email",
+                    "in": "formData",
+                    "description": "Enter how much time for email",     
+                    "type": "integer"
+                  },
+                  {
+                    "name": "twoStep",
+                    "in": "formData",
+                    "description": "Enter how much time for two step verification",
+                    "type": "integer"
+                  },
+                  {
+                    "name": "viaSocial",
+                    "in": "formData",
+                    "description": "Enter how much time for via social login",
+                    "type": "integer"
+                  },
+                  {
+                    "name": "NoSignUp",
+                    "in": "formData",
+                    "description": "Enter how much time for No sign up",
+                    "type": "integer"
+                  },
+                  {
+                    "name": "accrequired",
+                    "in": "formData",
+                    "description": "Enter how much time for user and accout required",
+                    "type": "integer"
+
+                  },
+                  {
+                    "name": "notrequired",
+                    "in": "formData",
+                    "description": "Enter how much time for not required",
+                    "type": "integer"
+                  },
+                  {
+                    "name": "userFeed",
+                    "in": "formData",
+                    "description": "Enter how much time for user Feed back",
+                    "type": "integer"
+                  },
+                  {
+                    "name": "search",
+                    "in": "formData",
+                    "description": "Enter how much time for search",
+                    "type": "integer"               
+                  },
+                  {
+                    "name": "pushNoti",
+                    "in": "formData",
+                    "description": "Enter how much time for push notification",
+                    "type": "integer"
+                 
+                  },
+                  {
+                    "name": "messUserMan",
+                    "in": "formData",
+                    "description": "Enter how much time for message user management",
+                    "type": "integer"
+            
+                  },
+                  {
+                    "name": "RatingReview",
+                    "in": "formData",
+                    "description": "Enter how much time for Rating and review",
+                    "type": "integer"
+                
+                  },
+                  {
+                    "name": "RewardDeal",
+                    "in": "formData",
+                    "description": "Enter how much time for reward deals",       
+                    "type": "integer"
+                   
+                  },
+                  {
+                    "name": "payEcommerce",
+                    "in": "formData",
+                    "description": "Enter how much time for pay and ecommerce",
+                    "type": "integer"
+                    
+                  },
+                  {
+                    "name": "categoryFilter",
+                    "in": "formData",
+                    "description": "Enter how much time for category filter",
+                    "type": "integer"
+              
+                  },
+                  {
+                    "name": "userGenerated",
+                    "in": "formData",
+                    "description": "Enter how much time for user Generated ",
+                    "type": "integer"
+       
+                  },
+                  {
+                    "name": "Booking",
+                    "in": "formData",
+                    "description": "Enter how much time for booking",
+                    "type": "integer"
+            
+                  }
+                  
+              ],
+      
+              "responses": {
+                "200": {
+                  "description": "Category add Successfull",
+                  "schema": {
+                    "type": "object"
+                  }
+                },
+                "405": {
+                  "description": "Invalid input"
+                }
+              }
+            }
+          },
+          "/plateform/editplateform": {
+            "put": {
+              "summary": "Platefrom Add",
+              "tags": ["Plateform"],
+              "content": ["application/json"],
+              "parameters": [
+                {
+                  "name": "id",
+                  "in": "formData",
+                  "description": "Enter id of plateform",
+                  "type": "string",
+                  "value":"476e481c-3c75-4798-ac73-3ac6f4f23ac0"
+                },
+                {
+                  "name": "web",
+                  "in": "formData",
+                  "description": "Enter how much time for web",
+                  "type": "integer"
+                },
+                {
+                  "name": "mobile",
+                  "in": "formData",
+                  "description": "Enter how much time for mobile",
+                  "type": "integer"
+                },
+                {
+                    "name": "both",
+                    "in": "formData",
+                    "description": "Enter how much time for both",
+               
+                    "type": "interger"
+                  },
+                  {
+                    "name": "email",
+                    "in": "formData",
+                    "description": "Enter how much time for email",     
+                    "type": "integer"
+                  },
+                  {
+                    "name": "twoStep",
+                    "in": "formData",
+                    "description": "Enter how much time for two step verification",
+
+                    "type": "integer"
+                  },
+                  {
+                    "name": "viaSocial",
+                    "in": "formData",
+                    "description": "Enter how much time for via social login",
+           
+                    "type": "integer"
+                  },
+                  {
+                    "name": "NoSignUp",
+                    "in": "formData",
+                    "description": "Enter how much time for No sign up",
+            
+                    "type": "integer"
+                  },
+                  {
+                    "name": "accrequired",
+                    "in": "formData",
+                    "description": "Enter how much time for user and accout required",
+               
+                    "type": "integer"
+
+                  },
+                  {
+                    "name": "notrequired",
+                    "in": "formData",
+                    "description": "Enter how much time for not required",
+     
+                    "type": "integer"
+                  },
+                  {
+                    "name": "userFeed",
+                    "in": "formData",
+                    "description": "Enter how much time for user Feed back",
+            
+                    "type": "integer"
+                  },
+                  {
+                    "name": "search",
+                    "in": "formData",
+                    "description": "Enter how much time for search",
+             
+                 "type": "integer"               
+                  },
+                  {
+                    "name": "pushNoti",
+                    "in": "formData",
+                    "description": "Enter how much time for push notification",
+   
+                    "type": "integer"
+                 
+                  },
+                  {
+                    "name": "messUserMan",
+                    "in": "formData",
+                    "description": "Enter how much time for message user management",
+
+                    "type": "integer"
+            
+                  },
+                  {
+                    "name": "RatingReview",
+                    "in": "formData",
+                    "description": "Enter how much time for Rating and review",
+            
+                    "type": "integer"
+                
+                  },
+                  {
+                    "name": "RewardDeal",
+                    "in": "formData",
+                    "description": "Enter how much time for reward deals",
+         
+                    "type": "integer"
+                   
+                  },
+                  {
+                    "name": "payEcommerce",
+                    "in": "formData",
+                    "description": "Enter how much time for pay and ecommerce",
+           
+                    "type": "integer"
+                    
+                  },
+                  {
+                    "name": "categoryFilter",
+                    "in": "formData",
+                    "description": "Enter how much time for category filter",
+              
+                    "type": "integer"
+              
+                  },
+                  {
+                    "name": "userGenerated",
+                    "in": "formData",
+                    "description": "Enter how much time for user Generated ",
+                
+                    "type": "integer"
+       
+                  },
+                  {
+                    "name": "Booking",
+                    "in": "formData",
+                    "description": "Enter how much time for booking",
+     
+                    "type": "integer"
+            
+                  }
+                  
+              ],
+      
+              "responses": {
+                "200": {
+                  "description": "Education add Successfull",
+                  "schema": {
+                    "type": "object"
+                  }
+                },
+                "405": {
+                  "description": "Invalid input"
+                }
+              }
+            }
+          },
+          "/plateform/getplateform": {
+            "get": {
+              "x-swagger-router-controller": "middleware-name1",
+              "tags": ["Plateform"],
+              "description": "Get plateform value List",
+              "security": [
+                {
+                  "Bearer": []
+                }
+              ],
+              "responses": {}
+            }
+          },
+          "/category/addcategory": {
+            "post": {
+              "summary": "Category Add",
+              "tags": ["Category add"],
+              "content": ["application/json"],
+              "parameters": [
+                {
+                  "name": "name",
+                  "in": "formData",
+                  "description": "Enter user Name",
+                  "required": false,
+                  "type": "string"
+                },
+                {
+                  "name": "email",
+                  "in": "formData",
+                  "description": "Enter your email",
+                  "required": false,
+                  "type": "string"
+                },
+                {
+                  "name": "category",
+                  "in": "formData",
+                  "description": "Enter your category",
+                  "required": false,
+                  "type": "string"
+                }
+              ],
+      
+              "responses": {
+                "200": {
+                  "description": "Category add Successfull",
+                  "schema": {
+                    "type": "object"
+                  }
+                },
+                "405": {
+                  "description": "Invalid input"
+                }
+              }
+            }
+          },
+          "/category/editcategory": {
+            "put": {
+              "summary": "Category Add",
+              "tags": ["Category add"],
+              "content": ["application/json"],
+              "parameters": [
+                {
+                  "name": "id",
+                  "in": "formData",
+                  "description": "Enter category id",
+                  "required": false,
+                  "type": "string"
+                },
+                {
+                  "name": "name",
+                  "in": "formData",
+                  "description": "Enter user Name",
+                  "required": "true",
+                  "type": "string"
+                },
+                {
+                  "name": "email",
+                  "in": "formData",
+                  "description": "Enter your email",
+                  "required": false,
+                  "type": "string"
+                },
+                {
+                  "name": "category",
+                  "in": "formData",
+                  "description": "Enter your category",
+                  "required": false,
+                  "type": "string"
+                }
+              ],
+      
+              "responses": {
+                "200": {
+                  "description": "Education add Successfull",
+                  "schema": {
+                    "type": "object"
+                  }
+                },
+                "405": {
+                  "description": "Invalid input"
+                }
+              }
+            }
+          },
+          "/category/getcategory": {
+            "get": {
+              "x-swagger-router-controller": "middleware-name1",
+              "tags": ["Category add"],
+              "description": "Get all category",
+              "security": [
+                {
+                  "Bearer": []
+                }
+              ],
+              "responses": {}
+            }
+          },
+          "/userdata/addusercategory": {
+            "post": {
+              "summary": "Userdata Add",
+              "tags": ["User Data"],
+              "content": ["application/json"],
+              "parameters": [
+                {
+                  "name": "email",
+                  "in": "formData",
+                  "description": "Enter your email",
+                  "type": "string"
+                },
+                {
+                  "name": "password",
+                  "in": "formData",
+                  "description": "Enter your password",
+                  "type": "string"
+                },
+                {
+                  "name": "web",
+                  "in": "formData",
+                  "description": "Enter how much time for web",
+                  "type": "integer"
+                },
+                {
+                  "name": "mobile",
+                  "in": "formData",
+                  "description": "Enter how much time for mobile",
+                  "type": "integer"
+                },
+                {
+                    "name": "both",
+                    "in": "formData",
+                    "description": "Enter how much time for both",
+               
+                    "type": "interger"
+                  },
+                  {
+                    "name": "email",
+                    "in": "formData",
+                    "description": "Enter how much time for email",     
+                    "type": "integer"
+                  },
+                  {
+                    "name": "twoStep",
+                    "in": "formData",
+                    "description": "Enter how much time for two step verification",
+
+                    "type": "integer"
+                  },
+                  {
+                    "name": "viaSocial",
+                    "in": "formData",
+                    "description": "Enter how much time for via social login",
+           
+                    "type": "integer"
+                  },
+                  {
+                    "name": "NoSignUp",
+                    "in": "formData",
+                    "description": "Enter how much time for No sign up",
+            
+                    "type": "integer"
+                  },
+                  {
+                    "name": "accrequired",
+                    "in": "formData",
+                    "description": "Enter how much time for user and accout required",
+               
+                    "type": "integer"
+
+                  },
+                  {
+                    "name": "notrequired",
+                    "in": "formData",
+                    "description": "Enter how much time for not required",
+     
+                    "type": "integer"
+                  },
+                  {
+                    "name": "userFeed",
+                    "in": "formData",
+                    "description": "Enter how much time for user Feed back",
+            
+                    "type": "integer"
+                  },
+                  {
+                    "name": "search",
+                    "in": "formData",
+                    "description": "Enter how much time for search",
+             
+                 "type": "integer"               
+                  },
+                  {
+                    "name": "pushNoti",
+                    "in": "formData",
+                    "description": "Enter how much time for push notification",
+   
+                    "type": "integer"
+                 
+                  },
+                  {
+                    "name": "messUserMan",
+                    "in": "formData",
+                    "description": "Enter how much time for message user management",
+
+                    "type": "integer"
+            
+                  },
+                  {
+                    "name": "RatingReview",
+                    "in": "formData",
+                    "description": "Enter how much time for Rating and review",
+            
+                    "type": "integer"
+                
+                  },
+                  {
+                    "name": "RewardDeal",
+                    "in": "formData",
+                    "description": "Enter how much time for reward deals",
+         
+                    "type": "integer"
+                   
+                  },
+                  {
+                    "name": "payEcommerce",
+                    "in": "formData",
+                    "description": "Enter how much time for pay and ecommerce",
+           
+                    "type": "integer"
+                    
+                  },
+                  {
+                    "name": "categoryFilter",
+                    "in": "formData",
+                    "description": "Enter how much time for category filter",
+              
+                    "type": "integer"
+              
+                  },
+                  {
+                    "name": "userGenerated",
+                    "in": "formData",
+                    "description": "Enter how much time for user Generated ",
+                
+                    "type": "integer"
+       
+                  },
+                  {
+                    "name": "Booking",
+                    "in": "formData",
+                    "description": "Enter how much time for booking",
+     
+                    "type": "integer"
+            
+                  }
+                  
+              ],
+      
+              "responses": {
+                "200": {
+                  "description": "Education add Successfull",
+                  "schema": {
+                    "type": "object"
+                  }
+                },
+                "405": {
+                  "description": "Invalid input"
+                }
+              }
+            }
+          },
+          "/userdata/getusercategory": {
+            "get": {
+              "x-swagger-router-controller": "middleware-name1",
+              "tags": ["User Data"],
+              "description": "Get plateform value List",
+              "security": [
+                {
+                  "Bearer": []
+                }
+              ],
+              "responses": {}
+            }
+          }, 
+          "/industryCategory/addplateform": {
+            "post": {
+              "summary": "Idustry and category Add",
+              "tags": ["Idustry and category"],
+              "content": ["application/json"],
+              "parameters": [
+                {
+                  "name": "typeId",
+                  "in": "formData",
+                  "description": "Enter type id",
+                  "enum":[1,2],
+                  "type": "integer"
+                },
+                {
+                  "name": "category",
+                  "in": "formData",
+                  "description": "Enter your category",
+                  "type": "string"
+                },
+                {
+                  "name": "web",
+                  "in": "formData",
+                  "description": "Enter how much time for web",
+                  "type": "integer"
+                },
+                {
+                  "name": "mobile",
+                  "in": "formData",
+                  "description": "Enter how much time for mobile",
+                  "type": "integer"
+                },
+                {
+                    "name": "both",
+                    "in": "formData",
+                    "description": "Enter how much time for both",
+                    "type": "interger"
+                  },
+                  {
+                    "name": "email",
+                    "in": "formData",
+                    "description": "Enter how much time for email",     
+                    "type": "integer"
+                  },
+                  {
+                    "name": "twoStep",
+                    "in": "formData",
+                    "description": "Enter how much time for two step verification",
+                    "type": "integer"
+                  },
+                  {
+                    "name": "viaSocial",
+                    "in": "formData",
+                    "description": "Enter how much time for via social login",
+                    "type": "integer"
+                  },
+                  {
+                    "name": "NoSignUp",
+                    "in": "formData",
+                    "description": "Enter how much time for No sign up",
+                    "type": "integer"
+                  },
+                  {
+                    "name": "accrequired",
+                    "in": "formData",
+                    "description": "Enter how much time for user and accout required",
+                    "type": "integer"
+
+                  },
+                  {
+                    "name": "notrequired",
+                    "in": "formData",
+                    "description": "Enter how much time for not required",
+                    "type": "integer"
+                  },
+                  {
+                    "name": "userFeed",
+                    "in": "formData",
+                    "description": "Enter how much time for user Feed back",
+                    "type": "integer"
+                  },
+                  {
+                    "name": "search",
+                    "in": "formData",
+                    "description": "Enter how much time for search",
+                    "type": "integer"               
+                  },
+                  {
+                    "name": "pushNoti",
+                    "in": "formData",
+                    "description": "Enter how much time for push notification",
+                    "type": "integer"
+                 
+                  },
+                  {
+                    "name": "messUserMan",
+                    "in": "formData",
+                    "description": "Enter how much time for message user management",
+                    "type": "integer"
+            
+                  },
+                  {
+                    "name": "RatingReview",
+                    "in": "formData",
+                    "description": "Enter how much time for Rating and review",
+                    "type": "integer"
+                
+                  },
+                  {
+                    "name": "RewardDeal",
+                    "in": "formData",
+                    "description": "Enter how much time for reward deals",       
+                    "type": "integer"
+                   
+                  },
+                  {
+                    "name": "payEcommerce",
+                    "in": "formData",
+                    "description": "Enter how much time for pay and ecommerce",
+                    "type": "integer"
+                    
+                  },
+                  {
+                    "name": "categoryFilter",
+                    "in": "formData",
+                    "description": "Enter how much time for category filter",
+                    "type": "integer"
+              
+                  },
+                  {
+                    "name": "userGenerated",
+                    "in": "formData",
+                    "description": "Enter how much time for user Generated ",
+                    "type": "integer"
+       
+                  },
+                  {
+                    "name": "Booking",
+                    "in": "formData",
+                    "description": "Enter how much time for booking",
+                    "type": "integer"
+            
+                  }
+                  
+              ],
+      
+              "responses": {
+                "200": {
+                  "description": "Category add Successfull",
+                  "schema": {
+                    "type": "object"
+                  }
+                },
+                "405": {
+                  "description": "Invalid input"
+                }
+              }
+            }
+          },
+          "/industryCategory/getplateform/:{typeId}": {
+            "get": {
+              "tags": ["Idustry and category"],
+              "description": "Get industry catergory value List",
+              "parameters": [
+                {
+                  "name": "typeId",
+                  "in": "path",
+                  "description": "Enter type Id",
+                  "type": "interger"
+                }
+              ],
+              "responses": {}
+            }
+          }
+
+    }
+  }
+  
