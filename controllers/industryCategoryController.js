@@ -141,11 +141,14 @@ if (addPlateform) {
     });
 	let payload = await commonHelper.verifyJoiSchema(payloadData, schema);
     console.log("payload data===?",payload)
-    let condition={
-        typeId:payload.typeId
-        }
-      console.log("condition",condition)
-    let profile = Service.industryCategoryService.getplateformAll(condition);
+    // let condition={
+    //     typeId:payload.typeId
+    //     }
+    //   console.log("condition",condition)
+    // let profile = Service.industryCategoryService.getplateformAll(condition);
+    let profile =await Service.industryCategoryService.getplateformAll();
+console.log("This is industryCategoryController profile return the data from database",profile)
+
     if (profile) {
       return profile;
     } else {
@@ -153,17 +156,17 @@ if (addPlateform) {
     }
   },
 
-//   getPlateform :  async(payloadData) => {
-// console.log("this is payload data",payloadData)
-//     let condition={
-//         typeId:payloadData
-//         }
-//       console.log("condition",condition)
-//     let profile = Service.industryCategoryService.getplateformAll(condition);
-//     if (profile) {
-//       return profile;
-//     } else {
-//       throw Response.error_msg.recordNotFound
-//     }
-//   },
+  getPlateforms :  async(payloadData) => {
+    console.log("this is payload data",payloadData)
+    let condition={
+        typeId:payloadData
+        }
+      console.log("condition",condition)
+    let profile =await Service.industryCategoryService.getplateformAll(condition);
+    if (profile) {
+      return profile;
+    } else {
+      throw Response.error_msg.recordNotFound
+    }
+  },
 };

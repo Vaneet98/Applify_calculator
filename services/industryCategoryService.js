@@ -91,10 +91,11 @@ exports.getplateform = (criteria, projection) => {
 exports.getplateformAll = (condition) => {
   return new Promise((resolve, reject) => {
     Models.industryCategory
-      .findAndCountAll({
+      .findAll({
         where: condition,
       })
       .then((result) => {
+        console.log("this is result",result)
         resolve(result);
       })
       .catch((err) => {

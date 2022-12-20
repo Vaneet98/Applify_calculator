@@ -13,7 +13,7 @@ router.put("/editplateform", (req, res) => {
     let payload = req.body;
     return sendResponse.executeMethod(industryCategoryController.editPlateform, payload, req, res);
   });
-
+  
 router.get("/getplateform/:typeId", (req, res) => {
     let payload = req.params;
     return sendResponse.executeMethod(industryCategoryController.getPlateform, payload, req, res);

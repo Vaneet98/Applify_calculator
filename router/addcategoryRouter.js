@@ -7,7 +7,7 @@ const categoryController=require("../controllers/addcategoryController")
 router.post("/addcategory", (req, res) => {
   let payload = req.body;
   return sendResponse.executeMethod(categoryController.addCategory, payload, req, res);
-});
+}); 
 
 router.put("/editcategory", (req, res) => {
     let payload = req.body;

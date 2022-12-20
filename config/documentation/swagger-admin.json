@@ -1050,7 +1050,7 @@
               }
             }
           },
-          "/industryCategory/getplateform/:{typeId}": {
+          "/industryCategory/getplateform/{typeId}": {
             "get": {
               "tags": ["Idustry and category"],
               "description": "Get industry catergory value List",
