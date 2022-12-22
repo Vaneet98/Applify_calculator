@@ -38,7 +38,7 @@ module.exports = function (Sequelize, sequelize, DataTypes) {
 			allowNull: false,
             defaultValue:0
         },
-        NoSignUp:{
+        NoSignUp:{  
             type: DataTypes.INTEGER,
 			defaultValue:0
         },

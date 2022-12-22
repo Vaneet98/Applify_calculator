@@ -7,10 +7,11 @@ const industryCategoryController=require("../controllers/industryCategoryControl
  
 router.get("/", async(req, res) => {
   var id=JSON.parse(JSON.stringify(req.query)  ) 
-  console.log("thisisisisisiis",id.id)  
-  console.log("My data" + JSON.stringify(req.query));    
+  // console.log("thisisisisisiis",id.id)  
+  // console.log("My data" + JSON.stringify(req.query));    
       
-  let data=await plateformController.getPlateform()
+  let data=await plateformController.getPlateform() 
+  // console.log("data=====>",data)
   // let datas=await industryCategoryController.getPlateform(id.id)                 
   if(id.id==1){ 
     res.render("applify", {

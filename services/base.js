@@ -80,3 +80,17 @@ exports.delete = (model, criteria) => {
 	});
 };
 
+exports.saveBulData = (model, objToSave) => {
+	return new Promise((resolve, reject) => {
+	  model
+		.bulkCreate(objToSave)
+		.then((result) => {
+		  resolve(result);
+		})
+		.catch((err) => {
+		  console.log(err);
+		  reject(Response.error_msg.implementationError);
+		});
+	});
+  };
+  

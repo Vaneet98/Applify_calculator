@@ -19,24 +19,26 @@ const swaggerJsDocs = require("./config/documentation/swagger-admin.json");
 app.use("/swagger-docs", swaggerUI.serve, swaggerUI.setup(swaggerJsDocs));
 
 var ejsfileRouter=require("./router/ejsfileRouter")
-var userRouter=require("./router/profileRoutes")
+// var userRouter=require("./router/profileRoutes")
 var plateform=require("./router/plateformRouter")
 var category=require("./router/addcategoryRouter")
 var userdata=require("./router/adduserCategoryRouter")
 var industryCategory=require("./router/industryCategoryRouter")
+var userDetail=require("./router/userSelectRouter")
 
 app.use("/",ejsfileRouter)
-app.use("/user",userRouter)
+// app.use("/user",userRouter)
 app.use("/plateform",plateform)
 app.use("/category",category)
 app.use("/userdata",userdata)  
 app.use("/industryCategory",industryCategory)
-
-     
+app.use("/userDetail",userDetail)
+  
+         
 require("./dbConnection").connectDB(); 
 require("./models/index");
 
 app.listen(process.env.PORT, () => {
   console.log(`http://localhost:${process.env.PORT}`);
 });
-         
+                                                                 

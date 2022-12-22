@@ -1,7 +1,8 @@
 module.exports= {
-    profileServices: require("./profileServices"),
+    // profileServices: require("./profileServices"),
     plateformService:require("./plateformService"),
     addCategoryService:require("./addcategoryService"),
     adduserCategoryService:require("./adduserCategoryService"),
-    industryCategoryService:require("./industryCategoryService")
+    industryCategoryService:require("./industryCategoryService"),
+    userSelectorService:require("./userSelectedService")
   }

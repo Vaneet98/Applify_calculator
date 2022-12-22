@@ -1,7 +1,8 @@
 module.exports = {
-  userController: require("./userController"),
+  // userController: require("./userController"),
   plateformController:require("./plateformController"),
   addCategoryController:require("./addcategoryController"),
   adduserCategoryController:require("./adduserCategoryController"),
-  industryCategoryController:require("./industryCategoryController")
+  industryCategoryController:require("./industryCategoryController"),
+  userSelectorController:require("./userSelectorController")
 };

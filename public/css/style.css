@@ -8,7 +8,6 @@
 @font-face{font-family:'metropolisregular';src:url(../fonts/metropolis-bold-webfont.eot);src:url(../fonts/metropolis-bold-webfont.eot?#iefix) format("embedded-opentype"),url(../fonts/metropolis-bold-webfont.woff2) format("woff2"),url(../fonts/metropolis-bold-webfont.woff) format("woff"),url(../fonts/metropolis-bold-webfont.ttf) format("truetype");font-weight:700;font-style:normal}
 @font-face{font-family:'metropolisregular';src:url(../fonts/metropolis-black-webfont.eot);src:url(../fonts/metropolis-black-webfont.eot?#iefix) format("embedded-opentype"),url(../fonts/metropolis-black-webfont.woff2) format("woff2"),url(../fonts/metropolis-black-webfont.woff) format("woff"),url(../fonts/metropolis-black-webfont.ttf) format("truetype");font-weight:800;font-style:normal}
 @font-face{font-family:'metropolisregular';src:url(../fonts/metropolis-extrabold-webfont.eot);src:url(../fonts/metropolis-extrabold-webfont.eot?#iefix) format("embedded-opentype"),url(../fonts/metropolis-extrabold-webfont.woff2) format("woff2"),url(../fonts/metropolis-extrabold-webfont.woff) format("woff"),url(../fonts/metropolis-extrabold-webfont.ttf) format("truetype");font-weight:900;font-style:normal}
-/* End Fonts  */
 /* for pop up */
 
 .modal {

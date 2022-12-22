@@ -8,30 +8,23 @@ const baseService = require("./base");
 
 exports.saveData = async (objToSave) => {
 	console.log("objto save ---save==>", objToSave)
-	return await baseService.saveData(Models.profile, objToSave);
-};
+	return await baseService.saveData(Models.userSelector, objToSave);
+};  
 
+exports.savebulkData = async (objToSave) => {
+	console.log("objto save ---save==>", objToSave)
+	return await baseService.saveBulData(Models.userMultiSelector, objToSave);
+};
+ 
 exports.updateData = async (criteria, objToSave) => {
 	console.log("obj to save=====>", objToSave)
-	return await baseService.updateData(Models.profile, criteria, objToSave);
+	return await baseService.updateData(Models.userSelector, criteria, objToSave);
 };
 exports.delete = async (criteria) => {
 	return await baseService.delete(Models.user, criteria);
 };
 
-exports.count = async (criteria) => {
-	let where = {};
-
-	if (criteria && (criteria.isBlocked !== undefined)) {
-		where.isBlocked = criteria.isBlocked;
-	}
-	return await baseService.count(Models.Notification, where);
-};
-
-
-
-
-exports.getAllUser = (criteria, projection, limit, offset) => {
+exports.getAlluserSelector = (criteria, projection, limit, offset) => {
 	let where = {};
 	let order = [
 		["createdAt","DESC"]
@@ -66,7 +59,7 @@ exports.getAllUser = (criteria, projection, limit, offset) => {
 	if (criteria["isDeleted"] === 1) where.isBlocked = 0;
 
 	return new Promise((resolve, reject) => {
-		Models.user
+		Models.userSelector
 			.findAndCountAll({
 				limit,
 				offset,
@@ -83,12 +76,28 @@ exports.getAllUser = (criteria, projection, limit, offset) => {
 	});
 };
 
-exports.getProfile = (criteria, projection) => {
+exports.getuserSelector = (criteria) => {
 	return new Promise((resolve, reject) => {
-		Models.profile
+		Models.userSelector
 			.findOne({
 				where: criteria,
-				attributes: projection,
+			})
+			.then(result => {
+				resolve(result);
+			}).catch(err => {
+				console.log("get err ==>>  ", err);
+				reject(Response.error_msg.implementationError);
+			});
+	});
+};
+
+
+exports.getuserSelectorAll = () => {
+	return new Promise((resolve, reject) => {
+		Models.userSelector
+			.findOne({
+				
+				
 			})
 			.then(result => {
 				resolve(result);
