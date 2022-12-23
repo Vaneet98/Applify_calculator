@@ -123,7 +123,7 @@ module.exports = {
       };
       let userData = await Service.userSelectorService.getuserSelector(
         condition
-      ); 
+      );         
       if (userData) {
         let id = userData.id;
         let newSelectedCategory = [];

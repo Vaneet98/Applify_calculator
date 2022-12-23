@@ -14,8 +14,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
-    <link href="https://www.dafontfree.net/embed/bWV0cm9wb2xpcy1yZWd1bGFyJmRhdGEvNTIvbS8xNTY4MDAvTWV0cm9wb2xpcy1SZWd1bGFyLm90Zg" 
-    rel="stylesheet" type="text/css"/>
+  <link
+    href="https://www.dafontfree.net/embed/bWV0cm9wb2xpcy1yZWd1bGFyJmRhdGEvNTIvbS8xNTY4MDAvTWV0cm9wb2xpcy1SZWd1bGFyLm90Zg"
+    rel="stylesheet" type="text/css" />
   <!-- Vendor CSS Files -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -51,25 +52,26 @@
         <div class="row main_row">
           <div class="col-md-12">
             <form id="msform" novalidate>
-
+              <!-- First page   -->
               <fieldset>
                 <div class="next main_div_row_one cost_steps">
-                  <div class="row ">
-                    <div class="col-md-12">
-                      <h2>Scratch or Readymade Apps?</h2>
-                    </div>
-                  </div>
+
                   <div class="row row_bx">
-                    <div class="col-lg-6 col-md-12 A" id="1" >
-                      <div class="exist_business_bx clr_black A" id="1" >
+                    <div class="row ">
+                      <div class="col-md-12">
+                        <h2>Scratch or Readymade Apps?</h2>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 A" id="1">
+                      <div class="exist_business_bx clr_black A" id="1">
                         <h3> Readymade (save upto 40% of the cost) </h3>
                         <p> Uber, Intagram, Airbnb, Whatsapp etc. </p>
                         <img src="/public/images/mobile.png" alt="" id="1" class="A">
 
                       </div>
                     </div>
-                    <div class="col-lg-6 col-md-12 A" id="2" >
-                      <div class="exist_business_bx clr_orange A" id="2" >
+                    <div class="col-lg-6 col-md-12 A" id="2">
+                      <div class="exist_business_bx clr_orange A" id="2">
                         <h3> Custom App </h3>
                         <p> Cars & Transport, Social networking, Travel, <br> Health & Beauty etc. </p>
                         <img src="/public/images/cate2.png" alt="" id="2" class="A">
@@ -133,20 +135,21 @@
 
               </fieldset>
 
+
               <fieldset>
                 <div class="previous title_text">
-                 
+
                   <a href="#_" class="">
                     <i class="fa fa-angle-left"></i> Back
                   </a>
                   <h2>Platform</h2>
                 </div>
-            
+
                 <div class="row">
                   <div class="col-lg-4">
                     <div _ngcontent-my-app-c9="" class="option mat-ripple ng-star-inserted" mat-ripple="">
                       <span _ngcontent-my-app-c9="" class="text">Web <br>App</span>
-                    
+
                       <div class="radio">
                         <label>
                           <input type="radio" class="firstPage" name="optionsRadios" id="web" required>
@@ -159,7 +162,7 @@
                   <div class="col-lg-4">
                     <div _ngcontent-my-app-c9="" class="option mat-ripple ng-star-inserted" mat-ripple="">
                       <span _ngcontent-my-app-c9="" class="text">Mobile<br> App</span>
-             
+
                       <div class="radio">
                         <label>
                           <input type="radio" class="firstPage" name="optionsRadios" id="mobile">
@@ -172,7 +175,7 @@
                   <div class="col-lg-4">
                     <div _ngcontent-my-app-c9="" class="option mat-ripple ng-star-inserted" mat-ripple="">
                       <span _ngcontent-my-app-c9="" class="text">Both</span>
-                 
+
                       <div class="radio">
                         <label>
                           <input type="radio" class="firstPage" name="optionsRadios" id="both">
@@ -201,7 +204,7 @@
                   <div class="col-lg-6">
                     <div _ngcontent-my-app-c9="" class="option mat-ripple ng-star-inserted" mat-ripple="">
                       <span _ngcontent-my-app-c9="" class="text">Email Login</span>
-                   
+
                       <div class="radio">
                         <label>
                           <input type="radio" value="<%=data.dataValues.email%>" class="sum secondPage" name="login"
@@ -214,7 +217,7 @@
                   <div class="col-lg-6">
                     <div _ngcontent-my-app-c9="" class="option mat-ripple ng-star-inserted" mat-ripple="">
                       <span _ngcontent-my-app-c9="" class="text">Via Social Networks</span>
-                     
+
                       <div class="radio">
                         <label>
                           <input type="radio" name="login" id="via social Networks"
@@ -227,7 +230,7 @@
                   <div class="col-lg-6">
                     <div _ngcontent-my-app-c9="" class="option mat-ripple ng-star-inserted" mat-ripple="">
                       <span _ngcontent-my-app-c9="" class="text">2 Step Authentications</span>
-                    
+
                       <div class="radio">
                         <label>
                           <input type="radio" name="login" value="<%=data.dataValues.twoStep%>" class="sum secondPage "
@@ -269,7 +272,7 @@
                   <div class="col-lg-6">
                     <div _ngcontent-my-app-c9="" class="option mat-ripple ng-star-inserted" mat-ripple="">
                       <span _ngcontent-my-app-c9="" class="text">Users & Accounts Required</span>
-                    
+
                       <div class="radio">
                         <label>
                           <input type="radio" name="user" id="user & Accounts Required" class="sum thirdPage"
@@ -282,7 +285,7 @@
                   <div class="col-lg-6">
                     <div _ngcontent-my-app-c9="" class="option mat-ripple ng-star-inserted" mat-ripple="">
                       <span _ngcontent-my-app-c9="" class="text">Not Required</span>
-                  
+
                       <div class="radio">
                         <label>
                           <input type="radio" name="user" id="Not Required" class="sum thirdPage"
@@ -294,7 +297,7 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <input type="button" id="btn3" name="next" class="next btn_main" value="Save and Continue" disabled />
 
 
@@ -405,7 +408,7 @@
                       </div>
                     </li>
                   </ul>
-              
+
                 </div>
 
                 <input type="button" id="btn4" class="next btn_main" value="Save and Continue" disabled />
@@ -441,11 +444,19 @@
         if ($(this).is(':checked')) {
           $('#btn4').prop("disabled", false);
         } else {
-          if ($('.checks').filter(':checked').length < 1) {
+          if ($('.fifthPage').filter(':checked').length < 1) {
             $('#btn4').attr('disabled', true);
           }
         }
       });
+
+      // var inputElems = document.getElementsByClassName("fifthPage");
+      // for (var i = inputElems.length - 1; i >= 0; --i) {
+      //   var elem = inputElems[i];
+      //   elem.onchange = function () {
+      //     document.getElementById("btn4").removeAttribute("disabled");
+      //   };
+      // }
 
 
       // This is for login type radio button
@@ -517,6 +528,33 @@
       })
 
 
+      //
+
+      // $(".A").click(function () {
+      //   let id=event.target.id;
+      //   $.get("http://localhost:8080/"+id, function (data, status) {
+      //   alert(data)
+      //   });
+      // });
+
+      //Call the dynamic data
+      $(document).ready(function () {
+        $(".A").click(function () {
+          // alert(event.target.id)
+          // let id = (event.target.id)
+          let id = 20;
+          $.ajax({ 
+            method: "GET",
+            url: "/?id=" + id,
+            // data: { id },
+          })
+            .done(function (msg) {
+              // alert(msg)
+            });
+        })
+      })
+
+
       //To store the user selected data in object and array inside object and after submit send to database
       var arr = {};
       arr.SelectedCategory = [];
@@ -525,12 +563,12 @@
 
         $(".A ").click(function () {
           arr.AppType = event.target.id
-          console.log("this is apptype",arr)
+          console.log("this is apptype", arr)
         })
 
         $(".app_logo").click(function () {
           arr.IndustryAndCategory = event.target.id
-          console.log("object",arr)
+          console.log("object", arr)
         })
 
         $(".firstPage").click(function () {
@@ -564,11 +602,14 @@
 
         })
 
-        $(".fifthPage").click(function () {
-          arr.SelectedCategory.push(event.target.id)
+        $(".fifthPage").change(function () {
+          // arr.SelectedCategory.push(event.target.id)
+          arr.SelectedCategory = $('.fifthPage:checked').toArray().map(x => x.name);
+          console.log("The last step", arr.SelectedCategory)
         })
 
         $(".laststep").change(function () {
+
           var name = $("#name").val();
           var email = $("#email").val();
           arr.name = name
